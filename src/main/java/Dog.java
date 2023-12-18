@@ -7,8 +7,8 @@ public class Dog extends Animal{
     public Dog() {
     }
 
-    public Dog(Map<Disease, Boolean> isVaccinated, boolean isClean, Disease disease, int age, String name, int animalNumber, boolean hasFoulBreath) {
-        super(isVaccinated, isClean, disease, age, name, animalNumber);
+    public Dog(int age, String name, int animalNumber, boolean hasFoulBreath) {
+        super(age, name, animalNumber);
         this.hasFoulBreath = hasFoulBreath;
     }
 
@@ -20,5 +20,14 @@ public class Dog extends Animal{
     @Override
     public void vaccinateAnimal(Disease disease) { //Todo: implement method vaccinateAnimal
 
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "hasFoulBreath=" + hasFoulBreath +
+                ", disease=" + disease +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

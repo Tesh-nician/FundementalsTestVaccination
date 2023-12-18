@@ -1,4 +1,5 @@
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Cat extends Animal{
 
@@ -6,9 +7,12 @@ public class Cat extends Animal{
 
     public Cat() {
     }
+    Map<Disease,Boolean> isVaccinated = new TreeMap<>();
 
-    public Cat(Map<Disease, Boolean> isVaccinated, boolean isClean, Disease disease, int age, String name, int animalNumber, boolean hasLongNails) {
-        super(isVaccinated, isClean, disease, age, name, animalNumber);
+
+    public Cat( int age, String name, int animalNumber, boolean hasLongNails) {
+
+        super(age, name, animalNumber);
         this.hasLongNails = hasLongNails;
     }
 
@@ -20,5 +24,15 @@ public class Cat extends Animal{
     @Override
     public void vaccinateAnimal(Disease disease) {  //ToDo: implement method vaccinateAnimal
 
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "hasLongNails=" + hasLongNails +
+                ", isVaccinated=" + isVaccinated +
+                ", disease=" + disease +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -7,8 +7,8 @@ public class Monkey extends Animal{
     public Monkey() {
     }
 
-    public Monkey(Map<Disease, Boolean> isVaccinated, boolean isClean, Disease disease, int age, String name, int animalNumber, boolean isHyperActive) {
-        super(isVaccinated, isClean, disease, age, name, animalNumber);
+    public Monkey(int age, String name, int animalNumber, boolean isHyperActive) {
+        super(age, name, animalNumber);
         this.isHyperActive = isHyperActive;
     }
 
@@ -24,6 +24,10 @@ public class Monkey extends Animal{
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Monkey{" +
+                "isHyperActive=" + isHyperActive +
+                ", disease=" + disease +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

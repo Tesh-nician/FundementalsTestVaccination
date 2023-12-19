@@ -1,6 +1,6 @@
 import java.util.Map;
 
-public class Dog extends Animal{
+public class Dog extends Animal {
 
     private boolean hasFoulBreath=true;
 
@@ -13,21 +13,31 @@ public class Dog extends Animal{
     }
 
     @Override
-    public void treatAnimal() { //ToDo: implement method treatAnimal
+    public void treatAnimal() { //ToDo: implement method treatAnimal:Done
+        setClean();
+        this.hasFoulBreath=false;
+        this.vaccinateAnimal(Disease.CHICKENPOX);
+        this.vaccinateAnimal(Disease.FLUE);
+        this.vaccinateAnimal(Disease.POLIO);
+        this.vaccinateAnimal(Disease.HEPATITISA);
 
     }
 
-    @Override
-    public void vaccinateAnimal(Disease disease) { //Todo: implement method vaccinateAnimal
 
-    }
 
     @Override
     public String toString() {
-        return "Dog{" +
-                "hasFoulBreath=" + hasFoulBreath +
+        return "Dog{" +" age:"+getAge()+
+                " hasFoulBreath=" + hasFoulBreath +
+                " is vaccinated for: "+getIsVaccinated()+
                 ", disease=" + disease +
-                ", name='" + name + '\'' +
+                ", name='" + name + "ID: "+getAnimalNumber()+'\'' +
                 '}';
     }
+
+
+
+
+
+
 }

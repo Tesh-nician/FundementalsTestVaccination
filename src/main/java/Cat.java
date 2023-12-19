@@ -1,38 +1,48 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Cat extends Animal{
+public class Cat extends Animal {
 
     private boolean hasLongNails=true;
 
+
     public Cat() {
     }
-    Map<Disease,Boolean> isVaccinated = new TreeMap<>();
+   // Map<Disease,Boolean> isVaccinated = new TreeMap<>();
 
 
     public Cat( int age, String name, int animalNumber, boolean hasLongNails) {
 
         super(age, name, animalNumber);
         this.hasLongNails = hasLongNails;
+
     }
+
+
 
     @Override
-    public void treatAnimal() {  //ToDo: implement methods treatAnimal
-
+    public void treatAnimal() {  //ToDo: implement methods treatAnimal :Done
+        setClean();
+        this.hasLongNails=false;
+        this.vaccinateAnimal(Disease.CHICKENPOX);
+        this.vaccinateAnimal(Disease.FLUE);
+        this.vaccinateAnimal(Disease.POLIO);
+        this.vaccinateAnimal(Disease.HEPATITISA);
     }
 
-    @Override
-    public void vaccinateAnimal(Disease disease) {  //ToDo: implement method vaccinateAnimal
-
-    }
 
     @Override
     public String toString() {
-        return "Cat{" +
-                "hasLongNails=" + hasLongNails +
-                ", isVaccinated=" + isVaccinated +
+        return "Cat{" +" age:"+getAge()+
+                " hasLongNails=" + hasLongNails +
+                ", isVaccinated for: " + getIsVaccinated() +
                 ", disease=" + disease +
-                ", name='" + name + '\'' +
+                ", name='" + name + "ID: "+getAnimalNumber()+'\'' +
                 '}';
     }
+
+
+
+
+
 }

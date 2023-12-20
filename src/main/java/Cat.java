@@ -8,7 +8,7 @@ public class Cat extends Animal {
 
     public Cat() {
     }
-   // Map<Disease,Boolean> isVaccinated = new TreeMap<>();
+  
 
 
     public Cat( int age, String name) {

@@ -12,15 +12,13 @@ public class Cat extends Animal {
 
 
     public Cat( int age, String name) {
-
+        //Deze constructor is alleen voor data input in de main app.
         super(age, name);
-       // this.hasLongNails = hasLongNails;
     }
 
     public Cat( int age, String name, int animalNumber) {
-
+        //Deze constructor is om objecten te maken die in de animals linkedlist worden toegevoegd.
         super(age, name);
-        // this.hasLongNails = hasLongNails;
         setAnimalNumber(animalNumber);
     }
 
@@ -34,6 +32,7 @@ public class Cat extends Animal {
         this.vaccinateAnimal(Disease.FLUE);
         this.vaccinateAnimal(Disease.POLIO);
         this.vaccinateAnimal(Disease.HEPATITISA);
+        System.out.println(getName()+" has been treated: cleaned, declawed and full set of vaccinations was given.");
     }
 
 
@@ -41,13 +40,8 @@ public class Cat extends Animal {
     public String toString() {
         return "Cat{" + " name= " + name + "ID= "+getAnimalNumber()+" age= "+getAge()+
                 " hasLongNails= " + hasLongNails +
+                ", isclean= "+isClean()+
                 ", isVaccinated for: " + getIsVaccinated() +
-                ", disease=" + disease +
                 "}\n";
     }
-
-
-
-
-
 }

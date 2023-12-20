@@ -8,13 +8,13 @@ public class Dog extends Animal {
     }
 
     public Dog(int age, String name) {
-        super(age, name);
-        //this.hasFoulBreath = hasFoulBreath;
+       //Deze constructor is alleen voor data input in de main app.
+       super(age, name);
     }
 
     public Dog(int age, String name, int animalNumber) {
+        //Deze constructor is om objecten te maken die in de animals linkedlist worden toegevoegd.
         super(age, name);
-        //this.hasFoulBreath = hasFoulBreath;
         setAnimalNumber(animalNumber);
     }
 
@@ -28,7 +28,7 @@ public class Dog extends Animal {
         this.vaccinateAnimal(Disease.FLUE);
         this.vaccinateAnimal(Disease.POLIO);
         this.vaccinateAnimal(Disease.HEPATITISA);
-
+        System.out.println(getName()+" has been treated: cleaned, teeth cleaned (= cause of bad breath) and full set of vaccinations was given.");
     }
 
 
@@ -37,14 +37,8 @@ public class Dog extends Animal {
     public String toString() {
         return "Dog{" +" name='" + name + " ID= "+getAnimalNumber()+" age= "+getAge()+
                 " hasFoulBreath= " + hasFoulBreath +
+                ", isclean= "+isClean()+
                 " is vaccinated for: "+getIsVaccinated()+
-                ", disease= " + disease +
                 "}\n";
     }
-
-
-
-
-
-
 }

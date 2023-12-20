@@ -3,102 +3,138 @@ import java.util.stream.Collectors;
 
 public class AnimalShelter {
 
-    private List<Animal> animals = new LinkedList<>(); //ToDo instantiate list of animals: Done
-    private int animalID=0;
+    private List<Animal> animals = new LinkedList<>(); //holds the list of all animals in the animal shelter.
+    private int animalID = 0; //used to increment the animalNumber in the addAnimal method
 
-    public AnimalShelter() {   //animals are added using addAnimal method!!
+    public AnimalShelter() {   //no parameter constructor: animals are added using addAnimal method.
     }
 
 
-    public void printAnimals() {
-        System.out.println(animals);
+    public void printAnimals() { //used a ternary to check if the list is empty
+        System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals).orElse(null));
     }
 
 
-    public void sortAnimals() {  //use streams, is trivial
-        System.out.println(animals.stream().sorted(Comparator.comparing(Animal::getAnimalNumber)).collect(Collectors.toList()));
+    public void sortAnimals() {  //Trivial :-), also used a ternary to check if the list is empty
+        System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals.stream().sorted(Comparator.comparing(Animal::getAnimalNumber)).collect(Collectors.toList())));
     }
 
-    public void sortAnimalsbyName() {
-        System.out.println(animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList()));
+
+    public void sortAnimalsbyName() {//used a ternary to check if the list is empty
+        try {
+            System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList()));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sortAnimalsbyAge() {
-        System.out.println(animals.stream().sorted(Comparator.comparing(Animal::getAge)).collect(Collectors.toList()));
+
+    public void sortAnimalsbyAge() {//used a ternary to check if the list is empty
+        try {
+            System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getAge)).collect(Collectors.toList()));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void printAnimalsNotVaccinated(Disease disease) {
-        System.out.println(animals.stream().filter(a-> !a.getIsVaccinated(disease)).collect(Collectors.toList()));
+
+    public void printAnimalsNotVaccinated(Disease disease) { //used a ternary to check if the list is empty
+        try {
+            System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().filter(a -> !a.getIsVaccinated(disease)).collect(Collectors.toList()));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public Optional<Animal> findAnimal(int animalID) {
+        //findFirst return type is always Optional!
+
+        return (animals.stream().filter(animal -> animal.getAnimalNumber() == animalID).findFirst());
+    }
+
+
+    public List<Animal> findAnimal(String name) {
+        //Possibility of multiple animals with the same name!
+        return  animals.stream().filter(a -> Objects.equals(a.getName(), name)).collect(Collectors.toList());
 
     }
 
-    public Optional<Animal> findAnimal(int animalID) {//findFirst return type is always Optional!
+
+    public void treatAnimal(int animalNumber) {
+        //check if animal is present
+
+        if (findAnimal(animalNumber).isPresent()) {
+            animals.stream().filter(animal -> animal.getAnimalNumber() == animalNumber).forEach(Animal::treatAnimal);
+        } else {
+            System.out.println("No animal with this ID number in the list.");
+        }
+    }
 
 
-            return (animals.stream().filter(animal -> animal.getAnimalNumber()==animalID).findFirst());
+    public void treatAnimal(String name) {
+        //check if animal is present.
+        // Attention: there might be multiple animals with the same name!!! = Test is OK
+
+        try {
+            if (!findAnimal(name).isEmpty()) {
+                animals.stream().filter(animal -> animal.getName().equals(name)).forEach(Animal::treatAnimal);
+            } else {
+                System.out.println("No animal with this name in the list.");
+            }
+        } catch (NullPointerException e) {e.printStackTrace();}
+
 
     }
 
-    public Optional<Animal> findAnimal(String name) { //findFirst return type is always Optional!
-
-        return (animals.stream().filter(a -> Objects.equals(a.getName(), name)).findFirst());
-
-    }
-
-    public void treatAnimal(int animalNumber){
-
-        animals.stream().filter(animal -> animal.getAnimalNumber()==animalNumber).forEach(Animal::treatAnimal);
-
-    }
-
-    public void treatAnimal(String name){ //Attention: there might be multiple animals with the same name!!!
-
-        animals.stream().filter(animal -> animal.getName().equals(name)).forEach(Animal::treatAnimal);
-
-    }
-
-    public void treatAllAnimals(){
+    public void treatAllAnimals() {
+        //Test with null = OK, geen exception
         animals.forEach(Animal::treatAnimal);
+
     }
 
 
-
-    public Optional <Animal> findOldestAnimal() {  //Test with multiple equal ages
-
-     return animals.stream().max(Comparator.comparing(Animal::getAge));
-
+    public Animal findOldestAnimal() {
+        //Test with multiple equal ages = OK
+        //Test with null = geen exception
+        return animals.stream().max(Comparator.comparing(Animal::getAge)).orElse(null);
     }
 
     public int countAnimals() {
+        //Test with null=OK, geen exception
         return animals.size();
-    } //Test with null?
+    }
 
 
+    public void addAnimal(Animal animal) {
+        /* I used two different constructors (one WITH and one WITHOUT animalNumber).
+        The constructor without animalNumber is used only for data input.
+        The constructor with animalNumber is used for input in the linkedlist */
 
-    public void addAnimal(Animal animal) {  //ToDo: remove temporary/dummy animalID from method = Done, used two different constructors (one with and one without animalNumber)
+        //System.out.println(animal.getClass());//for debugging
 
-        System.out.println(animal.getClass());
+        String newAnimalType = animal.getClass().toString(); //extract animal class for use in switch.
 
-        String newAnimalType = animal.getClass().toString();
+        try {
+            switch (newAnimalType) {
+                case "class Cat":
+                    animals.add(new Cat(animal.getAge(), animal.getName(), animalID));
+                    break;
+                case "class Dog":
+                    animals.add(new Dog(animal.getAge(), animal.getName(), animalID));
+                    break;
+                case "class Monkey":
+                    animals.add(new Monkey(animal.getAge(), animal.getName(), animalID));
+                    break;
+                default: {
+                    System.out.println("Class " + newAnimalType + " does NOT exist!!!\nPlease check your animal type.");
+                }
+            }
+            animalID++; //this increments the animal ID for the following animal being added.
 
-        //Add error trapping here!
-        //animalID is used 2 times: one is for the List and one is for the constructor.
-        switch (newAnimalType) {
-            case "class Cat":
-                animals.add(animalID,new Cat(animal.getAge(), animal.getName(),animalID));
-
-                break;
-            case "class Dog":
-                animals.add(animalID,new Dog(animal.getAge(), animal.getName(),animalID));
-
-                break;
-            case "class Monkey":
-                animals.add(animalID,new Monkey(animal.getAge(), animal.getName(),animalID));
-
-                break;
-
+        } catch (IllegalArgumentException | UnsupportedOperationException e) {
+            System.out.println("There is a problem with the animals being added to the list,\n please check that they have the correct attributes. \n");
+            e.printStackTrace();
         }
-
-        animalID++;
     }
 }

@@ -38,7 +38,7 @@ public class Cat extends Animal {
 
     @Override
     public String toString() {
-        return "Cat{" + " name= " + name + "ID= "+getAnimalNumber()+" age= "+getAge()+
+        return "Cat{" + " name= " + name + " ID= "+getAnimalNumber()+" age= "+getAge()+
                 " hasLongNails= " + hasLongNails +
                 ", isclean= "+isClean()+
                 ", isVaccinated for: " + getIsVaccinated() +

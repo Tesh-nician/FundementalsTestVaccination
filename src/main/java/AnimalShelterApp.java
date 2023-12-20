@@ -3,16 +3,16 @@ public class AnimalShelterApp {
 
         AnimalShelter myAnimalShelter = new AnimalShelter();
 
-        myAnimalShelter.addAnimal(new Cat(2,"Fluffy",0,true));
-        myAnimalShelter.addAnimal(new Dog(1,"Rex",0,true));
-        myAnimalShelter.addAnimal(new Monkey(3,"Kong",0,true));
-        myAnimalShelter.addAnimal(new Cat(5,"Sheba",0,true));
-        myAnimalShelter.addAnimal(new Dog(6,"Bella",0,true));
-        myAnimalShelter.addAnimal(new Monkey(3,"Jane",0,true));
-        myAnimalShelter.addAnimal(new Cat(4,"Tiger",0,true));
-        myAnimalShelter.addAnimal(new Dog(2,"Worf",0,true));
-        myAnimalShelter.addAnimal(new Monkey(1,"Rudi",0,true));
-        myAnimalShelter.addAnimal(new Monkey(11,"Donald",0,true));
+        myAnimalShelter.addAnimal(new Cat(0,"Fluffy"));
+        myAnimalShelter.addAnimal(new Dog(1,"Rex"));
+        myAnimalShelter.addAnimal(new Monkey(3,"Kong"));
+        myAnimalShelter.addAnimal(new Cat(5,"Sheba"));
+        myAnimalShelter.addAnimal(new Dog(6,"Bella"));
+        myAnimalShelter.addAnimal(new Monkey(3,"Jane"));
+        myAnimalShelter.addAnimal(new Cat(4,"Tiger"));
+        myAnimalShelter.addAnimal(new Dog(2,"Worf"));
+        myAnimalShelter.addAnimal(new Monkey(1,"Rudi"));
+        myAnimalShelter.addAnimal(new Monkey(11,"Donald"));
 
         System.out.println("\nprintAnimals: \n");
         myAnimalShelter.printAnimals();
@@ -50,7 +50,7 @@ public class AnimalShelterApp {
         System.out.println("\nFind oldest animal"); //add error trapping for null, if necessary
         System.out.println(myAnimalShelter.findOldestAnimal());//add orElse exception NoSuchAnimal
 
-        System.out.println("\nCounting the number og animals in the shelter:"); //add error trapping for null, if necessary
+        System.out.println("\nCounting the number of animals in the shelter:"); //add error trapping for null, if necessary
         System.out.println(myAnimalShelter.countAnimals());//add orElse exception NoSuchAnimal
 
 

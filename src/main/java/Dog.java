@@ -7,10 +7,18 @@ public class Dog extends Animal {
     public Dog() {
     }
 
-    public Dog(int age, String name, int animalNumber, boolean hasFoulBreath) {
-        super(age, name, animalNumber);
-        this.hasFoulBreath = hasFoulBreath;
+    public Dog(int age, String name) {
+        super(age, name);
+        //this.hasFoulBreath = hasFoulBreath;
     }
+
+    public Dog(int age, String name, int animalNumber) {
+        super(age, name);
+        //this.hasFoulBreath = hasFoulBreath;
+        setAnimalNumber(animalNumber);
+    }
+
+
 
     @Override
     public void treatAnimal() { //ToDo: implement method treatAnimal:Done
@@ -27,11 +35,11 @@ public class Dog extends Animal {
 
     @Override
     public String toString() {
-        return "Dog{" +" name='" + name + "ID: "+getAnimalNumber()+" age:"+getAge()+
-                " hasFoulBreath=" + hasFoulBreath +
+        return "Dog{" +" name='" + name + " ID= "+getAnimalNumber()+" age= "+getAge()+
+                " hasFoulBreath= " + hasFoulBreath +
                 " is vaccinated for: "+getIsVaccinated()+
-                ", disease=" + disease +
-                '}';
+                ", disease= " + disease +
+                "}\n";
     }
 
 

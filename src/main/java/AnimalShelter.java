@@ -75,23 +75,26 @@ public class AnimalShelter {
 
 
 
-    public void addAnimal(Animal animal) {  //ToDo: remove dummy animalID from method, this should probably be added with a setter.
+    public void addAnimal(Animal animal) {  //ToDo: remove temporary/dummy animalID from method = Done, used two different constructors (one with and one without animalNumber)
 
         System.out.println(animal.getClass());
 
         String newAnimalType = animal.getClass().toString();
 
         //Add error trapping here!
-        //Todo: remove redundant animalID from Cat/Dog/Monkey class
+        //animalID is used 2 times: one is for the List and one is for the constructor.
         switch (newAnimalType) {
             case "class Cat":
-                animals.add(animalID,new Cat(animal.getAge(), animal.getName(), animalID,true));
+                animals.add(animalID,new Cat(animal.getAge(), animal.getName(),animalID));
+
                 break;
             case "class Dog":
-                animals.add(animalID,new Dog(animal.getAge(), animal.getName(), animalID,true));
+                animals.add(animalID,new Dog(animal.getAge(), animal.getName(),animalID));
+
                 break;
             case "class Monkey":
-                animals.add(animalID,new Monkey(animal.getAge(), animal.getName(), animalID,true));
+                animals.add(animalID,new Monkey(animal.getAge(), animal.getName(),animalID));
+
                 break;
 
         }

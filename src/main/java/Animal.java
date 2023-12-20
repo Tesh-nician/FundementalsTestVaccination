@@ -31,11 +31,11 @@ public abstract class Animal implements Vaccinateable,Treatable {
     public Animal() {                       //default constructor
     }
 
-    public Animal( int age, String name, int animalNumber) {
+    public Animal( int age, String name) {
 
         this.age = age;
         this.name = name;
-        this.animalNumber = animalNumber;
+        //this.animalNumber = animalNumber;
         isVaccinated.put(Disease.CHICKENPOX,false);
         isVaccinated.put(Disease.FLUE,false);
         isVaccinated.put(Disease.POLIO,false);
@@ -80,7 +80,9 @@ public abstract class Animal implements Vaccinateable,Treatable {
         this.isClean = true;
     }
 
-
+    public void setAnimalNumber(int animalNumber) {
+        this.animalNumber = animalNumber;
+    }
 
     @Override
     public void vaccinateAnimal(Disease disease) {

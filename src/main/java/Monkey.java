@@ -7,10 +7,19 @@ public class Monkey extends Animal {
     public Monkey() {
     }
 
-    public Monkey(int age, String name, int animalNumber, boolean isHyperActive) {
-        super(age, name, animalNumber);
-        this.isHyperActive = isHyperActive;
+    public Monkey(int age, String name) {
+        super(age, name);
+        //this.isHyperActive = isHyperActive;
+
     }
+
+    public Monkey(int age, String name, int animalNumber) {
+        super(age, name);
+        setAnimalNumber(animalNumber);
+
+    }
+
+
 
     @Override
     public void treatAnimal() {         //ToDo: implement this method:Done
@@ -26,11 +35,11 @@ public class Monkey extends Animal {
 
     @Override
     public String toString() {
-        return " Monkey{" +" name= " + name + ", ID: "+getAnimalNumber()+", age: "+getAge()+
+        return "Monkey{" +" name= " + name + ", ID= "+getAnimalNumber()+", age= "+getAge()+
                 ", isHyperActive= " + isHyperActive +
                 ", is vaccinated for: "+getIsVaccinated()+
 
-                '}';
+                "}\n";
     }
 
 

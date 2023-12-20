@@ -11,11 +11,17 @@ public class Cat extends Animal {
    // Map<Disease,Boolean> isVaccinated = new TreeMap<>();
 
 
-    public Cat( int age, String name, int animalNumber, boolean hasLongNails) {
+    public Cat( int age, String name) {
 
-        super(age, name, animalNumber);
-        this.hasLongNails = hasLongNails;
+        super(age, name);
+       // this.hasLongNails = hasLongNails;
+    }
 
+    public Cat( int age, String name, int animalNumber) {
+
+        super(age, name);
+        // this.hasLongNails = hasLongNails;
+        setAnimalNumber(animalNumber);
     }
 
 
@@ -33,11 +39,11 @@ public class Cat extends Animal {
 
     @Override
     public String toString() {
-        return "Cat{" + " name='" + name + "ID: "+getAnimalNumber()+" age:"+getAge()+
-                " hasLongNails=" + hasLongNails +
+        return "Cat{" + " name= " + name + "ID= "+getAnimalNumber()+" age= "+getAge()+
+                " hasLongNails= " + hasLongNails +
                 ", isVaccinated for: " + getIsVaccinated() +
                 ", disease=" + disease +
-                '}';
+                "}\n";
     }
 
 

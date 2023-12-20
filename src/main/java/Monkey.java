@@ -26,11 +26,10 @@ public class Monkey extends Animal {
 
     @Override
     public String toString() {
-        return "Monkey{" +" age:"+getAge()+
-                " isHyperActive=" + isHyperActive +
+        return " Monkey{" +" name= " + name + ", ID: "+getAnimalNumber()+", age: "+getAge()+
+                ", isHyperActive= " + isHyperActive +
                 ", is vaccinated for: "+getIsVaccinated()+
-                ", disease=" + disease +
-                ", name='" + name + "ID: "+getAnimalNumber()+'\'' +
+
                 '}';
     }
 

@@ -27,11 +27,10 @@ public class Dog extends Animal {
 
     @Override
     public String toString() {
-        return "Dog{" +" age:"+getAge()+
+        return "Dog{" +" name='" + name + "ID: "+getAnimalNumber()+" age:"+getAge()+
                 " hasFoulBreath=" + hasFoulBreath +
                 " is vaccinated for: "+getIsVaccinated()+
                 ", disease=" + disease +
-                ", name='" + name + "ID: "+getAnimalNumber()+'\'' +
                 '}';
     }
 

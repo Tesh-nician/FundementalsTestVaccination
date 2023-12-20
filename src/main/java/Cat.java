@@ -33,11 +33,10 @@ public class Cat extends Animal {
 
     @Override
     public String toString() {
-        return "Cat{" +" age:"+getAge()+
+        return "Cat{" + " name='" + name + "ID: "+getAnimalNumber()+" age:"+getAge()+
                 " hasLongNails=" + hasLongNails +
                 ", isVaccinated for: " + getIsVaccinated() +
                 ", disease=" + disease +
-                ", name='" + name + "ID: "+getAnimalNumber()+'\'' +
                 '}';
     }
 

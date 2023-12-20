@@ -62,9 +62,7 @@ public abstract class Animal implements Vaccinateable,Treatable {
         return isClean;
     }
 
-    public Disease getDisease() {
-        return disease;
-    }
+
 
     public int getAge() {
         return age;
@@ -82,11 +80,7 @@ public abstract class Animal implements Vaccinateable,Treatable {
         this.isClean = true;
     }
 
-    public void setIsVaccinated(Disease disease) {
 
-        this.isVaccinated.replace(disease,true);
-
-    }
 
     @Override
     public void vaccinateAnimal(Disease disease) {

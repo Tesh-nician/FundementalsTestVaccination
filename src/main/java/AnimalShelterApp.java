@@ -26,7 +26,7 @@ public class AnimalShelterApp {
         System.out.println("\nsortAnimalsByAge: ");
         myAnimalShelter.sortAnimalsbyAge();
 
-        System.out.println("\nVaccinated for ChickenPox: ");
+        System.out.println("\nNot vaccinated for ChickenPox: ");
         myAnimalShelter.printAnimalsNotVaccinated(Disease.CHICKENPOX);
 
         System.out.println("\nFind animal with ID number 2: "); //add error trapping=done
@@ -52,22 +52,6 @@ public class AnimalShelterApp {
 
         System.out.println("\nCounting the number og animals in the shelter:"); //add error trapping for null, if necessary
         System.out.println(myAnimalShelter.countAnimals());//add orElse exception NoSuchAnimal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

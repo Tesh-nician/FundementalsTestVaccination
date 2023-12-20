@@ -15,7 +15,7 @@ public class AnimalShelter {
     }
 
 
-    public void sortAnimals() {
+    public void sortAnimals() {  //use streams, is trivial
         System.out.println(animals.stream().sorted(Comparator.comparing(Animal::getAnimalNumber)).collect(Collectors.toList()));
     }
 
@@ -32,14 +32,14 @@ public class AnimalShelter {
 
     }
 
-    public Optional<Animal> findAnimal(int animalID) {
+    public Optional<Animal> findAnimal(int animalID) {//findFirst return type is always Optional!
 
 
-            return (animals.stream().filter(animal -> animal.getAnimalNumber()==animalID).findFirst());//ToDo: convert into optional
+            return (animals.stream().filter(animal -> animal.getAnimalNumber()==animalID).findFirst());
 
     }
 
-    public Optional<Animal> findAnimal(String name) {
+    public Optional<Animal> findAnimal(String name) { //findFirst return type is always Optional!
 
         return (animals.stream().filter(a -> Objects.equals(a.getName(), name)).findFirst());
 
@@ -51,7 +51,7 @@ public class AnimalShelter {
 
     }
 
-    public void treatAnimal(String name){
+    public void treatAnimal(String name){ //Attention: there might be multiple animals with the same name!!!
 
         animals.stream().filter(animal -> animal.getName().equals(name)).forEach(Animal::treatAnimal);
 
@@ -61,7 +61,9 @@ public class AnimalShelter {
         animals.forEach(Animal::treatAnimal);
     }
 
-    public Optional <Animal> findOldestAnimal() {
+
+
+    public Optional <Animal> findOldestAnimal() {  //Test with multiple equal ages
 
      return animals.stream().max(Comparator.comparing(Animal::getAge));
 
@@ -69,11 +71,11 @@ public class AnimalShelter {
 
     public int countAnimals() {
         return animals.size();
-    }
+    } //Test with null?
 
 
 
-    public void addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) {  //ToDo: remove dummy animalID from method, this should probably be added with a setter.
 
         System.out.println(animal.getClass());
 

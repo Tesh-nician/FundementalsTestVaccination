@@ -63,12 +63,13 @@ public class AnimalShelter {
 
     public void treatAnimal(int animalNumber) {
         //check if animal is present
-
-        if (findAnimal(animalNumber).isPresent()) {
-            animals.stream().filter(animal -> animal.getAnimalNumber() == animalNumber).forEach(Animal::treatAnimal);
-        } else {
-            System.out.println("No animal with this ID number in the list.");
-        }
+        try {
+            if (findAnimal(animalNumber).isPresent()) {
+                animals.stream().filter(animal -> animal.getAnimalNumber() == animalNumber).forEach(Animal::treatAnimal);
+            } else {
+                System.out.println("No animal with this ID number in the list.");
+            }
+        } catch (NullPointerException e) {e.printStackTrace();}
     }
 
 

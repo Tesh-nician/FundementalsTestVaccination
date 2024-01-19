@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class Monkey extends Animal {
     boolean isHyperActive=true;
@@ -40,4 +40,6 @@ public class Monkey extends Animal {
                 ", is vaccinated for: "+getIsVaccinated()+
                 "}\n";
     }
+
+
 }

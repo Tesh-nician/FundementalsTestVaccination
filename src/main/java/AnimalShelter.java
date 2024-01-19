@@ -10,40 +10,39 @@ public class AnimalShelter {
     }
 
 
-    public void printAnimals() { //used a ternary to check if the list is empty
-        System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals).orElse(null));
+    public List<Animal> printAnimals() { //used a ternary to check if the list is empty
+        System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals).orElse());
+        return Optional.of(animals).orElse(Collections.EMPTY_LIST);
+
     }
 
 
-    public void sortAnimals() {  //Trivial :-), also used a ternary to check if the list is empty
+    public List<Animal> sortAnimals() {  //Trivial :-), also used a ternary to check if the list is empty
         System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals.stream().sorted(Comparator.comparing(Animal::getAnimalNumber)).collect(Collectors.toList())));
+        return Optional.of(animals.stream().sorted(Comparator.comparing(Animal::getAnimalNumber)).collect(Collectors.toList())).orElse(Collections.EMPTY_LIST);
+
     }
 
 
-    public void sortAnimalsbyName() {//used a ternary to check if the list is empty
-        try {
-            System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList()));
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+    public List<Animal> sortAnimalsbyName() {//used a ternary to check if the list is empty
+
+        System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList()));
+        return Optional.of(animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList())).orElse(null);
+
     }
 
 
-    public void sortAnimalsbyAge() {//used a ternary to check if the list is empty
-        try {
-            System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getAge)).collect(Collectors.toList()));
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+    public List<Animal> sortAnimalsbyAge() {//used a ternary to check if the list is empty
+
+         System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getAge)).collect(Collectors.toList()));
+         return Optional.of(animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList())).orElse(null);
     }
 
 
-    public void printAnimalsNotVaccinated(Disease disease) { //used a ternary to check if the list is empty
-        try {
-            System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().filter(a -> !a.getIsVaccinated(disease)).collect(Collectors.toList()));
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+    public List<Animal> printAnimalsNotVaccinated(Disease disease) { //used a ternary to check if the list is empty
+
+        System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().filter(a -> !a.getIsVaccinated(disease)).collect(Collectors.toList()));
+        return Optional.of(animals.stream().filter(a -> !a.getIsVaccinated(disease)).collect(Collectors.toList())).orElse(null);
     }
 
 

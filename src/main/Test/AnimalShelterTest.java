@@ -64,17 +64,17 @@ public class AnimalShelterTest {
         Assertions.assertEquals(sizeExpected,sizeActual); //empty list
 
 
-        for (int i=0;i<10000;i++) {
+        for (int i=0;i<1000000;i++) {
 
             myAnimalShelter.addAnimal(new Cat(0, "Fluffy"+i));
             myAnimalShelter.addAnimal(new Dog(2,"Worf"+i));
             myAnimalShelter.addAnimal(new Monkey(10,"Donald"+i));
         }
 
-        sizeExpected=30000;
+        sizeExpected=3000000;
         sizeActual = myAnimalShelter.countAnimals();
 
-        Assertions.assertEquals(sizeExpected,sizeActual); //10_000
+        Assertions.assertEquals(sizeExpected,sizeActual); //3_000_000
 
         List<Animal> result = myAnimalShelter.printAnimals();
 

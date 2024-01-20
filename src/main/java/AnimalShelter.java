@@ -11,7 +11,7 @@ public class AnimalShelter {
 
 
     public List<Animal> printAnimals() { //used a ternary to check if the list is empty
-        System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals).orElse());
+        System.out.println(animals.isEmpty() ? "No animals in this list" : Optional.of(animals).orElse(null));
         return Optional.of(animals).orElse(Collections.EMPTY_LIST);
 
     }
@@ -94,10 +94,12 @@ public class AnimalShelter {
     }
 
 
-    public Animal findOldestAnimal() {
+    public List<Animal> findOldestAnimal() {
         //Test with multiple equal ages = OK
         //Test with null = geen exception
-        return animals.stream().max(Comparator.comparing(Animal::getAge)).orElse(null);
+        Animal theOldest =animals.stream().max(Comparator.comparing(Animal::getAge)).orElse(null);
+
+        return animals.stream().filter(animal -> animal.getAge() == theOldest.getAge()).toList();
     }
 
     public int countAnimals() {

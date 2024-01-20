@@ -4,14 +4,14 @@ public class AnimalShelterApp {
         AnimalShelter myAnimalShelter = new AnimalShelter();
 
         myAnimalShelter.addAnimal(new Cat(0,"Fluffy"));
-        //myAnimalShelter.addAnimal(new Dog(1,"Fluffy"));
-        //myAnimalShelter.addAnimal(new Monkey(3,"Kong"));
-        //myAnimalShelter.addAnimal(new Cat(5,"Sheba"));
-        //myAnimalShelter.addAnimal(new Dog(6,"Bella"));
-        //myAnimalShelter.addAnimal(new Monkey(3,"Jane"));
-        //myAnimalShelter.addAnimal(new Cat(4,"Tiger"));
+        myAnimalShelter.addAnimal(new Dog(1,"Fluffy"));
+        myAnimalShelter.addAnimal(new Monkey(3,"Kong"));
+        myAnimalShelter.addAnimal(new Cat(5,"Sheba"));
+        myAnimalShelter.addAnimal(new Dog(6,"Bella"));
+        myAnimalShelter.addAnimal(new Monkey(3,"Jane"));
+        myAnimalShelter.addAnimal(new Cat(4,"Tiger"));
         myAnimalShelter.addAnimal(new Dog(2,"Worf"));
-        //myAnimalShelter.addAnimal(new Monkey(1,"Rudi"));
+        myAnimalShelter.addAnimal(new Monkey(11,"Rudi"));
         myAnimalShelter.addAnimal(new Monkey(11,"Donald"));
 
 

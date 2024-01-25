@@ -26,7 +26,10 @@ public class AnimalShelter {
 
     public List<Animal> sortAnimalsbyName() {//used a ternary to check if the list is empty
 
-        System.out.println(animals.isEmpty() ? "No animals in this list" : animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList()));
+        System.out.println(
+                animals.isEmpty() ?
+                        "No animals in this list" :
+                        animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList()));
         return Optional.of(animals.stream().sorted(Comparator.comparing(Animal::getName)).collect(Collectors.toList())).orElse(null);
 
     }
@@ -107,36 +110,46 @@ public class AnimalShelter {
         return animals.size();
     }
 
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
 
     public void addAnimal(Animal animal) {
+
+        animal.setAnimalNumber(animalID++);
+        animals.add(animal);
+
+
+
         /* I used two different constructors (one WITH and one WITHOUT animalNumber).
         The constructor without animalNumber is used only for data input.
         The constructor with animalNumber is used for input in the linkedlist */
 
         //System.out.println(animal.getClass());//for debugging
 
-        String newAnimalType = animal.getClass().toString(); //extract animal class for use in switch.
-
-        try {
-            switch (newAnimalType) {
-                case "class Cat":
-                    animals.add(new Cat(animal.getAge(), animal.getName(), animalID));
-                    break;
-                case "class Dog":
-                    animals.add(new Dog(animal.getAge(), animal.getName(), animalID));
-                    break;
-                case "class Monkey":
-                    animals.add(new Monkey(animal.getAge(), animal.getName(), animalID));
-                    break;
-                default: {
-                    System.out.println("Class " + newAnimalType + " does NOT exist!!!\nPlease check your animal type.");
-                }
-            }
-            animalID++; //this increments the animal ID for the following animal being added.
-
-        } catch (IllegalArgumentException | UnsupportedOperationException e) {
-            System.out.println("There is a problem with the animals being added to the list,\n please check that they have the correct attributes. \n");
-            e.printStackTrace();
-        }
+//        String newAnimalType = animal.getClass().toString(); //extract animal class for use in switch.
+//
+//        try {
+//            switch (newAnimalType) {
+//                case "class Cat":
+//                    animals.add(new Cat(animal.getAge(), animal.getName(), animalID));
+//                    break;
+//                case "class Dog":
+//                    animals.add(new Dog(animal.getAge(), animal.getName(), animalID));
+//                    break;
+//                case "class Monkey":
+//                    animals.add(new Monkey(animal.getAge(), animal.getName(), animalID));
+//                    break;
+//                default: {
+//                    System.out.println("Class " + newAnimalType + " does NOT exist!!!\nPlease check your animal type.");
+//                }
+//            }
+//            animalID++; //this increments the animal ID for the following animal being added.
+//
+//        } catch (IllegalArgumentException | UnsupportedOperationException e) {
+//            System.out.println("There is a problem with the animals being added to the list,\n please check that they have the correct attributes. \n");
+//            e.printStackTrace();
+//        }
     }
 }

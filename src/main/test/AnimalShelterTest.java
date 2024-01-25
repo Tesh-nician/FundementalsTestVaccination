@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Collections;
 
 
 /**
@@ -97,10 +98,14 @@ public class AnimalShelterTest {
         myAnimalShelter.addAnimal(dog);//1
         myAnimalShelter.addAnimal(monkey);//2
 
-        List<Animal> sorted = new ArrayList<>();
-        sorted.add(monkey);
-        sorted.add(dog);
-        sorted.add(cat);
+
+        List<Animal> sorted = new LinkedList<>();
+        sorted.add(0,cat);
+        sorted.add(1,dog);
+        sorted.add(2,monkey);
+
+       // sorted.sort(Comparator.comparing(Animal::getName).reversed());  //niet nodig meer nodig nadat index is toegevoegd aan add()
+
 
 
         myAnimalShelter.sortAnimalsbyName();
